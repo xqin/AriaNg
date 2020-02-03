@@ -60,11 +60,9 @@
     "gulp-sequence": "^1.0.0",
     "gulp-size": "^3.0.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2",
     "gulp-useref": "^3.1.6",
     "gulp-util": "^3.0.8",
-    "nice-try": "^2.0.0",
-    "uglify-save-license": "^0.4.1"
+    "nice-try": "^2.0.0"
   },
   "name": "ariang",
   "description": "AriaNg, a modern web frontend making aria2 easier to use.",

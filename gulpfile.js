@@ -5,7 +5,6 @@ var del = require('del');
 var fs = require('fs');
 var git = require('git-rev-sync');
 var tryFn = require('nice-try');
-var saveLicense = require('uglify-save-license');
 
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
@@ -77,7 +76,6 @@ gulp.task('prepare-html', ['prepare-styles', 'prepare-scripts', 'prepare-views']
     ]).pipe($.useref({searchPath: ['.tmp', 'src', '.']}))
         .pipe($.if('js/*.js', $.replace(/\/\/# sourceMappingURL=.*/g, '')))
         .pipe($.if('css/*.css', $.replace(/\/\*# sourceMappingURL=.* \*\/$/g, '')))
-        .pipe($.if(['js/moment-with-locales-*.min.js', 'js/plugins.min.js', 'js/aria-ng.min.js'], $.uglify({output: {comments: saveLicense}})))
         .pipe($.if(['css/plugins.min.css', 'css/aria-ng.min.css'], $.cssnano({safe: true, autoprefixer: false})))
         .pipe($.replace(/url\((\.\.\/fonts\/[a-zA-Z0-9\-]+\.woff2)(\?[a-zA-Z0-9\-_=.]+)?\)/g, function(match, fileName) {
             return 'url(' + fileName + ')'; // remove version of woff2 file (woff2 file should be cached via application cache)
