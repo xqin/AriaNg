@@ -34,7 +34,7 @@
     "angular-sweetalert": "^1.1.2",
     "angular-utf8-base64": "^0.0.5",
     "angular-clipboard": "^1.7.0",
-    "angular-input-dropdown": "git://github.com/mayswind/angular-input-dropdown.git#68670e39816698b3eb98c0e740a0efe77d5fbdd1",
+    "angular-input-dropdown": "git+https://github.com/mayswind/angular-input-dropdown.git#68670e39816698b3eb98c0e740a0efe77d5fbdd1",
     "angularjs-dragula": "^2.0.0"
   },
   "devDependencies": {
