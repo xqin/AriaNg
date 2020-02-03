@@ -6,7 +6,7 @@
             </li>
             <li class="nav-tab-title-rpcname" ng-repeat="setting in context.rpcSettings" ng-class="{'active': isCurrentRpcTab($index)}">
                 <a class="pointer-cursor" ng-click="changeRpcTab($index)">
-                    <span class="nav-tab-rpcname" ng-bind="'RPC' + (setting.rpcAlias || setting.rpcHost ? ' (' + (setting.rpcAlias ? setting.rpcAlias : setting.rpcHost + ':' + setting.rpcPort) + ')' : '')" title="{{(setting.rpcAlias ? setting.rpcAlias : setting.rpcHost + ':' + setting.rpcPort)}}">RPC</span>
+                    <span class="nav-tab-rpcname" ng-bind="'RPC' + (setting.rpcAlias || setting.rpcHost ? ' (' + getRpcAliasFromSetting(setting) + ')' : '')" title="{{(setting.rpcAlias || getRpcAliasFromSetting(setting))}}">RPC</span>
                 </a>
                 <a class="pointer-cursor nav-tab-close" ng-if="!setting.isDefault" title="{{'Delete RPC Setting' | translate}}">
                     <i class="fa fa-times" ng-click="removeRpcSetting(setting)"></i>
@@ -215,7 +215,7 @@
                             <span class="asterisk">*</span>
                         </div>
                         <div class="setting-value col-sm-8">
-                            <input class="form-control" type="text" ng-placeholder="(setting.rpcHost ? setting.rpcHost + ':' + setting.rpcPort : '')" ng-model="setting.rpcAlias" ng-change="updateRpcSetting(setting, 'rpcAlias')"/>
+                            <input class="form-control" type="text" ng-placeholder="getRpcAliasFromSetting(setting)" ng-model="setting.rpcAlias" ng-change="updateRpcSetting(setting, 'rpcAlias')"/>
                         </div>
                     </div>
                     <div class="row">

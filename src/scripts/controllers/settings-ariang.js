@@ -273,6 +273,10 @@
             ariaNgSettingService.updateRpcSetting(setting, field);
         };
 
+        $scope.getRpcAliasFromSetting = function (setting) {
+            return setting.rpcHost ? (setting.rpcPort ? (setting.rpcHost + ':' + setting.rpcPort) : setting.rpcHost) : ''
+        };
+
         $scope.removeRpcSetting = function (setting) {
             var rpcName = (setting.rpcAlias ? setting.rpcAlias : setting.rpcHost + ':' + setting.rpcPort);
 
